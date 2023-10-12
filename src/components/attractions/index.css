@@ -1,0 +1,11 @@
+.attractions {
+  display: grid;
+  gap: 8px;
+}
+.attractions__list {
+  display: grid;
+  gap: 16px;
+}
+.attractions__link {
+  color: black;
+}

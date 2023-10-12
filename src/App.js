@@ -1,3 +1,16 @@
+import Page from "./components/page";
+import Header from "./components/header";
+import Title from "./components/title";
+import Photo from "./components/photo";
+import Price from "./components/price";
+import RoomList from "./components/room-list";
+import Description from "./components/description";
+import PropertyDescription from "./components/property-description";
+import Amenities from "./components/amenities";
+import Additional from "./components/additional";
+import Contact from "./components/contacs";
+import Reviews from "./components/reviews";
+import Attractions from "./components/attractions";
 function App() {
   const data = {
     listing_name: "Іст-Сайд Біл",
@@ -144,7 +157,39 @@ function App() {
     ],
   };
 
-  return <div>Hello World</div>;
+  return (
+    <Page>
+      <Header />
+      <Title
+        title={data.listing_name}
+        rating={data.reviews_summary.average_rating}
+        review={data.reviews_summary.total_reviews}
+        city={data.location.city}
+        county={data.location.country}
+        superhost={data.superhost}
+      />
+      <Photo src={data.image} alt={data.name} />
+      <Price
+        price={data.price.original_price}
+        discount={data.price.discounted_price}
+        currency={data.price.currency}
+        cleaning={data.price.cleaning_fee}
+        service={data.price.service_fee}
+        checkin={data.availability.checkin_date}
+        checkout={data.availability.checkout_date}
+      />
+      <RoomList list={data.roomTypes} />
+      <Description children={data.description} title="Опис" />
+      <PropertyDescription list={data.property_details} />
+      <Description children={data.neighborhood_info} title="Про сусідів" />
+      <Amenities list={data.amenities} />
+      <Amenities list={data.amenities} />
+      <Contact contact={data.contact_info} />
+      <Additional list={data.additional_properties} />
+      <Reviews list={data.guestReviews} />
+      <Attractions list={data.nearbyAttractions} />
+    </Page>
+  );
 }
 
 export default App;

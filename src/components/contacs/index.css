@@ -1,0 +1,38 @@
+.contact {
+  display: grid;
+  gap: 28px;
+}
+.contact__photo {
+  border-radius: 50%;
+}
+.contact__about {
+  display: grid;
+  align-content: space-between;
+}
+.contact__member {
+  display: flex;
+  gap: 8px;
+}
+
+.contact__member__sub {
+  display: flex;
+  gap: 8px;
+}
+.contact__member__sub-value {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.contact__member__sub-value:not(:last-child):after {
+  content: "";
+
+  display: block;
+
+  height: 4px;
+  width: 4px;
+
+  border-radius: 4px;
+
+  background-color: black;
+}
